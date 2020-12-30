@@ -2,7 +2,7 @@
 
 This repo contains curriculum supporting the AP CS program used at Newport HS and International School for the 2017-2018 school year. The curriculum supports a late-objects approach to teaching Java.
 
-Each folder contains files and information for a given Unit, including:
+Each folder contains project code files and information for a given Unit, including:
 
 - **Unit 1: Basics**
     - Setting up a Java environment
@@ -11,7 +11,6 @@ Each folder contains files and information for a given Unit, including:
     - `System.out.print()` and `System.out.println()`
     - Decomposing problems
     - **PROJECT**: There Was An Old Woman
-    - **PROJECT**: Scalable Fish
 - **Unit 2: Variables, Expressions, and Loops**
     - Data types
     - Variables and Scope
@@ -27,7 +26,43 @@ Each folder contains files and information for a given Unit, including:
     - `while` loops
     - Booleans
     - **MINI-PROJECT**: Guessing Game
+    - **PROJECT**: Scalable Fish
 - **Unit 4: Arrays**
+    - Initializing arrays
+    - Passing as parameters
+    - Reference types
+    - Array indices
+    - `for..each` loops
+    - Multi-dimensional arrays
+    - **PROJECT**: PixelLab
 - **Unit 5: Classes and Objects**
+    - Objects v. Classes
+    - Methods v. Properties
+    - Accessor and Mutator methods
+    - Encapsulation and Abstraction
+    - Access control (`public`, `private`, `protected`)
+    - Getters and Setters
+    - Constructors
+    - `new` and `null`
+    - **MINI-PROJECT**: Temp Range
+    - **PROJECT**: ShapeLab
 - **Unit 6: Inheritance and Interfaces**
+    - Hierarchy of classes
+    - Subclass and Superclass
+    - Polymorphism
+    - `extends`
+    - Casting between types
+    - "is a" v. "has a" relationships
+    - `implements`
+    - Abstract classes
+    - **PROJECT**: Pokemon Battle
 - **Unit 7: Searching, Sorting, and Recursion**
+    - `ArrayList` and wrapper classes
+    - File I/O basics
+    - `.parseInt()` and `.parseDouble()`
+    - Sequential and Binary searches
+    - Selection and Insertion sorts
+    - Recursion
+    - Merge Sort
+    - Comparing sort algorithm efficiency
+    - **PROJECT**: Gazillion Songs
