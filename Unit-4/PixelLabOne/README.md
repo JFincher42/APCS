@@ -5,7 +5,7 @@ This project is inspired by the CollegeBoard AP CS "Picture Lab" developed by Ba
 
 Introduction
 ------------
-This lab  explores image processing by representing images as 2D arrays of pixels. You will be able to read in images, manipulate them by modifying the 2D arrays, and then display or save the modified images. Working on this lab will give you practice applying all the computer science concepts you have learned so far to the important domain of image processing.
+This lab explores image processing by representing images as 2D arrays of pixels. You will be able to read in images, manipulate them by modifying the 2D arrays, and then display or save the modified images. Working on this lab will give you practice applying all the computer science concepts you have learned so far to the important domain of image processing.
   
 **Prerequisites**: the ability to define and modify 1D and 2D arrays of integers; understanding conditionals and loops.
 
@@ -15,25 +15,24 @@ A digital image is a 2D array of pixels. Each pixel is a small square of a unifo
 
 A pixel's color is often represented as a triple of numbers, (r, g, b), representing the amount of red, green and blue in the image. The range of values allowed for each number is [0,255], with 0 representing no color and 255 representing the maximum possible value of that color. Thus, the triple (255, 0, 0) represents "pure" red, (0, 255, 0) represents "pure" green, and (0, 0, 255) represents "pure" blue.  (Side note: the range [0, 255] represents 256 different values. This is the exact number of distinct values that can be represented in 8 bits, which is 1 byte. This allows an (r,g,b) triple representing a single pixel to be packed into 3 bytes.)
 
-In this first Pixel Lab, we will restrict ourselves to "grayscale" images – images that are monochrome and range from black, through a series of grays, to white. Gray level can be represented by a single integer in the interval [0, 255].
+In this first Pixel Lab, we will restrict ourselves to "grayscale" images –-- images that are monochrome and range from black, through a series of grays, to white. Gray level can be represented by a single integer in the interval [0, 255].
 
 Since a grayscale pixel can be represented by a single integer, the entire grayscale image can be represented by a 2D array of integers. Specifically, the integer at row i and column j in the 2D array represents the gray level of the pixel located i pixel rows down and j pixels to the right from the top left corner of the image.
 
-For example, the array:
-
-    int[][] arr = {
-        {0,   50,  100},
-        {150, 200, 250}
-    };
-
-represents the grayscale image below (shown greatly magnified so that each pixel looks like a little square).
+For example, consider the following array:
+```
+int[][] arr = {
+    {0,   50,  100},
+    {150, 200, 250}
+};
+```
+This represents the grayscale image below (shown greatly magnified so that each pixel looks like a little square).
 
 ![Sample grayscale image](./samples/sample-image.jpg)
-
  
 This tiny image is only 3 pixels wide and it has 2 rows, directly corresponding to the two rows of the array.
 
-Representing a grayscale image as a 2D array of integers provides enormous opportunity for image analysis, synthesis and manipulation. For example, the problem of detecting a face in an image transforms into a problem of detecting a pattern in a 2D array of numbers using various mathematical techniques. Blurring an image (one of the activities in this this lab) consists of averaging the pixel values in the neighborhood of each pixel.  
+Representing a grayscale image as a 2D array of integers provides enormous opportunity for image analysis, synthesis, and manipulation. For example, the problem of detecting a face in an image transforms into a problem of detecting a pattern in a 2D array of numbers using various mathematical techniques. Blurring an image (one of the activities in this this lab) consists of averaging the pixel values in the neighborhood of each pixel.  
 
 Activity 1: Understand the initial project sample
 -------------------------------------------------
@@ -65,7 +64,8 @@ In this activity, you will experiment with modifying parts of an image by passin
 
 The end goal of this activity is to darken horizontal stripes of an image. For example, the image below left is the original image; the image to the right has been "striped" (the input image was converted to grayscale when it was loaded).
 
-![Striping source](./samples/stripesource.jpg) ![Striping result](./samples/striperesult.jpg)
+![Striping source](./samples/stripesource.jpg)
+![Striping result](./samples/striperesult.jpg)
 
 **Implementation Steps**
 
@@ -119,7 +119,7 @@ The two images used in the example are [cumbria.jpg]((https://commons.wikimedia.
 
 5.  Just after the `uniformlyBlend()` method, create a second blending method called `leftToRightBlend()` that has the same signature as `uniformlyBlend()`, but performs a left-to-right blend as illustrated earlier. Call this method from `blendActivity()`, creating and saving this version of the image to file leftToRightBlendOutput.jpg in your `images` folder.
 
-    The fractional contribution of the first and second image depends on the column number. Therefore, compute a fraction (say frac) that depends on the column index. This fraction starts out as 0 when the column index is 0 and becomes 1.0 when the column index is at its maximum value (representing the right-most column). This fraction can be used in the expression that blends pixels from the two image sources according to the following expression: `(1.0 – frac)*pix1 + frac*pix2`, where pix1 is a pixel from the first input image and pix2 is the corresponding pixel from the second input image. Remember that grayscale pixel values are `int` values, so use casting where appropriate.
+    The fractional contribution of the first and second image depends on the column number. Therefore, compute a fraction (say `frac`) that depends on the column index. This fraction starts out as 0 when the column index is 0 and becomes 1.0 when the column index is at its maximum value (representing the right-most column). This fraction can be used in the expression that blends pixels from the two image sources according to the following expression: `(1.0 – frac)*pix1 + frac*pix2`, where `pix1` is a pixel from the first input image and `pix2` is the corresponding pixel from the second input image. Remember that grayscale pixel values are `int` values, so use casting where appropriate.
 
 Make sure you submit your source and final blended images as part of your GitHub submission.  
     
@@ -127,8 +127,9 @@ Activity 4: Posterizing an image
 --------------------------------
 Posterization is the conversion of gradation of colors or tones in an image into larger regions with fewer tones, resulting in sharper, more abrupt changes between tones.  Originally done to handle printing colors on posters, the deliberate application of the technique to images can lead to interesting visual effects.
 
-An example of posterization can be seen below - posterization can be easily seen in the shadows under and above the snake, in it's nose, and behind the head. 
-![Posterization-example](./samples/posterization_example.jpg)  
+An example of posterization can be seen below - posterization can be easily seen in the shadows under and above the snake, in it's nose, and behind the head.
+
+![Posterization-example](./samples/posterization_example.jpg)
 Image credit: [by Diliff - Own work, CC BY-SA 3.0](https://upload.wikimedia.org/wikipedia/commons/c/cf/Posterization_example.jpg)
 
 You will effect posterization on an grayscale image of your own choosing, reducing the number of levels from 256 to 64, 32, and 16, and saving each resulting file. 
@@ -142,7 +143,9 @@ You will effect posterization on an grayscale image of your own choosing, reduci
     The method must first allocate an array to contain the posterized pixels. The dimension of this array should match the dimensions of the source array.
     
     The method should also define the ranges for each level in the posterized image.  As an example, consider an image posterized to just two levels - black and white.  
-![Posterizing source](./samples/wagon.jpg) ![Posterizing result](./samples/wagon-level2.jpg)
+
+![Posterizing source](./samples/wagon.jpg)
+![Posterizing result](./samples/wagon-level2.jpg)
 
     In this example, two levels were specified, so the ranges were calculated to be 0-127, and 128-255.  Every pixel in the image was mapped to one of these levels.
     
@@ -160,7 +163,8 @@ A sharp image can be made "blurry" by replacing each pixel by an average of itse
 
 Write a method called `blurImage()` that takes a 2D int array representing an image and returns a copy of the array that represents a blurry version of the input image (the input array must not be modified by the method). The blurring is done by setting each pixel in the new array to the average of all the pixels in a block (for example, an 11x11 pixel area) centered on the pixel to be blurred. This covers pixels within +/- 5 of the pixel in both the x and y directions. The larger the block that is involved in the averaging, the blurrier the image gets. The image below right was blurred using a 11x11 pixel averaging area.
 
-![Unblurred image](./samples/unblurred.jpg) ![Blurred image](./samples/blurred.jpg)
+![Unblurred image](./samples/unblurred.jpg)
+![Blurred image](./samples/blurred.jpg)
 
 *Warning*: pixels close to the image edges will not have the entire block of pixels to average, so be sure to only include valid pixel locations when computing the average. Optional: make the size of the block the second parameter to `blurImage()` (so passing 11 as the 2nd parameter produces a 11x11 block over which to compute the average) and experiment with varying this parameter.
 
@@ -170,9 +174,10 @@ Make sure you submit your source and final output images as part of your GitHub 
 
 Grading
 -------
-There are 50 total points available, plus 5 extra credit points.  Grading will be based on the following rubric:
+There are 60 total points available, plus 15 extra credit points.  Grading will be based on the following rubric:
 
 **Functional Correctness**
+
 - **5 points**: Activity 1 questions answered (cut/paste the questions and your answers into OneNote)  
 - **5 points**: You have picked your own input images (not the ones supplied by the project)  
 - **5 points**: Methods have the proper signature and the correct return values  
